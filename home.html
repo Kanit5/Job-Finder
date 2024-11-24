@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
+    <header class = "header">
+        <section class = "flex">
+            <div id = "menu-btn" class = "fas fa-bars-staggerde"></div>
+                <a href = "home.html" class = "logo"><i class = "fas fa-briefcase"></i>Job Finder</a>
+                <nav class = "navbar">
+                    <a href = "home.html">Home</a>
+                    <a href = "about.html">About</a>
+                    <a href = "jobs.html">All Jobs</a>
+                    <a href = "contact.html">Contact Us</a>
+                    <a href = "login.html">Account</a>
+                </nav>
+                <a href = "#" class = "btn" style = "margin-top: 0;">Post Jobs</a>
+        </section>
+    </header>
     
+    <div class = "home-container">
+        <section class = "home">
+            <form method = "post">
+                <h3>Find your next job</h3>
+                <p>Job Title<span>*</span></p>
+                <input type = "text" name = "title" placeholder="Keyword,Category or Company" required maxlength="20" class = "input">
+                <p>Job Location</p>
+                <input type = "text" name = "location" placeholder = "City" required maxlength="50" class = "input">
+                <input type = "submit" value = "search job" name = "search" class = "btn">
+            </form>
+        </section>
+    </div>
 </body>
 </html>
