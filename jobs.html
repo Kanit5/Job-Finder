@@ -13,7 +13,7 @@
     <header class = "header">
         <section class = "flex">
             <div id = "menu-btn" class = "fas fa-bars-staggered"></div>
-                <a href = "home.html" class = "logo"><i class = "fas fa-briefcase"></i>JobHunt</a>
+                <a href = "home.html" class = "logo"><i class = "fas fa-briefcase"></i>JobFinder</a>
 
                 <nav class="navbar">
                     <a href="home.html">Home</a>
@@ -26,6 +26,23 @@
                 <a href = "#" class = "btn" style = "margin-top: 0;">Post Job</a>
         </section>
     </header>
+
+    <section class = "job-filter">
+        <h1 class = "heading">filter jobs</h1>
+
+        <form action = "" method = "post">
+            <div class = "flex">
+                <div class = "box">
+                    <p>job title<span>*</span></p>
+                    <input type = "text" name = "title" placeholder="Keyword , Category or Company" required maxlength="20" class = "input">
+                </div>
+                <div class = "box">
+                    <p>Job location</p>
+                    <input type = "text" name = "location" placeholder="City , State or Country" required maxlength="50" class = "input">
+                </div>
+            </div>
+        </form>
+    </section>
 
     
 </body>
