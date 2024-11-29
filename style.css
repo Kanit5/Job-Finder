@@ -202,3 +202,104 @@ section{
     font-size: 1.8rem;
     color: var(--black);
 }
+
+.category .box-container{
+display: grid;
+grid-template-columns: repeat(auto-fit, 25rem);
+justify-content: center;
+align-items: flex-start;
+gap: 1.5rem;
+}
+
+.category .box-container .box{
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    padding: 2rem;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.category .box-container .box i{
+    height: 4.5rem;
+    width: 5rem;
+    line-height: 4.5rem;
+    font-size: 1.8rem;
+    color: var(--black);
+    border-radius: .5rem;
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+.category .box-container .box h3{
+    font-size: 1.8rem;
+    color: var(--black);
+    padding-bottom: .5rem;
+}
+
+.category .box-container .box span{
+    color: var(--light-color);
+    font-size: 1.6rem;
+}
+
+.category .box-container .box:hover{
+    background-color: var(--black);
+}
+
+.category .box-container .box:hover h3{
+    color: var(--white);
+}
+
+.category .box-container .box:hover span{
+    color: var(--white);
+}
+
+.category .box-container .box:hover i{
+    background-color: var(--white);
+}
+
+.jobs-container .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 35rem);
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.jobs-container .box-container .box{
+    background-color: var(--white);
+    border-radius: .5rem;
+    border: var(--border);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    overflow-x: hidden;
+}
+
+.jobs-container .box-container .box .company{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.jobs-container .box-container .box .company img{
+    height: 6rem;
+    width: 6rem;
+    object-fit: contain;
+}
+
+.jobs-container .box-container .box .company h3{
+    font-size: 1.8rem;
+    color: var(--black);
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    text-transform: capitalize;
+    padding-bottom: .5rem;
+}
+
+.jobs-container .box-container .box .company p{
+    color: var(--light-color);
+    font-size: 1.6rem;
+}
