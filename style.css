@@ -303,3 +303,30 @@ gap: 1.5rem;
     color: var(--light-color);
     font-size: 1.6rem;
 }
+
+.jobs-container .box-container .box .job-title{
+    font-size: 2rem;
+    color: var(--black);
+    text-transform: capitalize;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+.jobs-container .box-container .box .location{
+    padding: 7rem 0;
+    font-size: 1.6rem;
+    color: var(--light-color);
+}
+
+.jobs-container .box-container .box .location i{
+    margin-right: .3rem;
+    color: var(--main-color);
+}
+
+
+.jobs-container .box-container .box .tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
