@@ -648,3 +648,68 @@ object-fit: cover;
     background-blend-mode: color;  
   }
   
+  .account-form-container .account-form{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .account-form-container .account-form form{
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+    width: 50rem;
+    text-align: center;
+  }
+
+  .account-form-container .account-form form h3{
+    font-size: 2.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  }
+
+  .account-form-container .account-form form .input{
+    width: 100%;
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    padding: 1.4rem;
+    background-color: var(--light-bg);
+    border-radius: .5rem;
+  }
+
+  .account-form-container .account-form form p{
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    color: var(--light-color);
+  }
+
+  .account-form-container .account-form form p a{
+    color: var(--main-color);
+  }
+
+  .account-form-container .account-form form p a:hover{
+    color: var(--black);
+    text-decoration: underline;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  .footer .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
