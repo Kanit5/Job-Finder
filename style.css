@@ -153,7 +153,7 @@ section{
 
 
 .home-container{
-    background: url('../photos/home.png'), rgba(0, 0, 0, .7) no-repeat;;
+    background: url('home.png'), rgba(0, 0, 0, .7) no-repeat;;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
