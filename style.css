@@ -330,3 +330,32 @@ gap: 1.5rem;
     gap: 1rem;
     margin: 1.5rem 0;
 }
+
+.jobs-container .box-container .box .tags p{
+    padding: 1.5rem;
+    border-radius: .5rem;
+    background-color: var(--light-bg);
+    font-size: 1.6rem;
+    color: var(--light-color);
+}
+
+.jobs-container .box-container .box .tags p i{
+    margin-right: .5rem;
+    color: var(--black);
+}
+
+.jobs-container .box-container .box .fa-heart{
+    background-color: var(--light-bg);
+    border-radius: .5rem;
+    color: var(--light-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    height: 4rem;
+    width: 4.5rem;
+    line-height: 4rem;
+}
+
+.jobs-container .box-container .box .fa-heart:hover{
+    background-color: var(--black);
+    color: var(--white);
+}
