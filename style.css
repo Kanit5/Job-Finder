@@ -426,3 +426,29 @@ gap: 1.5rem;
     padding: 1rem 0;
     line-height: 1.8;
 }
+
+.reviews .box-container .box .user{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.reviews .box-container .box .user img{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.reviews .box-container .box .user h3{
+    font-size: 2rem;
+    color: var(--black);
+    margin-bottom: .5rem;
+    text-transform: capitalize;
+}
+
+.reviews .box-container .box .user span{
+    color: var(--light-color);
+    font-size: 1.6rem;
+}
