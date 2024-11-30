@@ -359,3 +359,38 @@ gap: 1.5rem;
     background-color: var(--black);
     color: var(--white);
 }
+
+.about img{
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.about .box{
+    background-color: var(--white);
+    border-radius: .5rem;
+    border: var(--border);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+.about .box h3{
+    font-size: 2rem;
+    color: var(--black);
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+}
+
+.about .box p{
+    padding: 1rem 0;
+    line-height: 1.8;
+    color: var(--light-color);
+    font-size: 1.6rem;
+}
+
+.reviews .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 35rem);
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: center;
+}
