@@ -33,18 +33,20 @@
     <div class="account-form-container">
         <section class="account-form">
 
-            <form action="" method="post" onsubmit="return validateRegister()">
-                <h3>create new account</h3>
-                <input type="text" required id = "name" name="name" maxlength="20" placeholder="enter your name" class="input">
-            <input type="email" required id = "email2" name="email" maxlength="50" placeholder="enter your email" class="input">
-            <input type="password" required id = "pass2" name="pass" maxlength="20" placeholder="enter your password" class="input">
-            <input type="password" required id = "passconfirm" name="c_pass" maxlength="20" placeholder="confirm your password" class="input">
-            <p>already have an account?  <a href="account.html">login now</a></p> 
-            <input type="submit" value="register now" name="submit" class="btn">
+            <form action="" method="post" onsubmit="return validatePostJob()">
+                <h3>Post a job</h3>
+                <input type="text" required id = "name2" name="name" maxlength="20" placeholder="Name of the Company" class="input">
+            <input type="email" required id = "email3" name="email" maxlength="50" placeholder="Enter your email" class="input">
+            <input type="text" required id = "jobttl" name="jobttl" maxlength="50" placeholder="Job Title" class="input">
+            <input type = "text" required id = "place" name = "place" maxlength="100" placeholder="The location " class = "input"><br>
+            <input type="submit" value="Post Job" name="submit" class="btn">
     
             </form>
         </section>
     </div>
+
+
+
 
     <footer class="footer">
 
@@ -85,6 +87,4 @@
     </footer>
         
         <script src="script.js"></script>
-
-    </body>
-    </html>
+</body>    

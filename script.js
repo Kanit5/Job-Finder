@@ -52,3 +52,29 @@ function validateRegister(){
     }
     return true;
 }
+
+function validatePostJob(){
+    var name2 = document.getElementById("name2").value;
+    var email3 = document.getElementById("email3").value;
+    var jobttl = document.getElementById("jobttl").value;
+    var place = document.getElementById("place").value;
+
+    if(name2 == " "){
+        alert("Enter your name!");
+        return false;
+    }
+    if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email3)){
+        alert("Invalid email address");
+        return false;
+    }    
+    if(jobttl == ""){
+        alert("Enter the Job Title!");
+        return false;
+    }
+    if(place =="null"){
+        alert("Enter the location of the job!");
+        return false;
+    }
+    return true;
+
+}
