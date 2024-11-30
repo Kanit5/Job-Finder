@@ -1,3 +1,17 @@
+//menu for responsive mode
+let navbar = document.querySelector('.header .flex .navbar');
+
+
+document.querySelector('#menu-btn').onclick = () => {
+    navbar.classList.toggle('active');
+};
+
+
+window.onscroll = () => {
+    navbar.classList.remove('active');
+};
+
+//Validate the LogIn of the user
 function validateLogIn(){
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;   
@@ -20,6 +34,7 @@ function validateLogIn(){
     return true;
 }
 
+//Validate the Registration of a users
 function validateRegister(){
     var name = document.getElementById("name").value;
     var email2 = document.getElementById("email2").value;
@@ -53,6 +68,8 @@ function validateRegister(){
     return true;
 }
 
+
+//validate the proccess of posting a job
 function validatePostJob(){
     var name2 = document.getElementById("name2").value;
     var email3 = document.getElementById("email3").value;
