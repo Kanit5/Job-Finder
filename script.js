@@ -1,4 +1,4 @@
-//menu for responsive mode
+//menu bar for responsive mode
 let navbar = document.querySelector('.header .flex .navbar');
 
 
@@ -94,4 +94,35 @@ function validatePostJob(){
     }
     return true;
 
+}
+
+//Validate Contact Form
+
+function validateContact(){
+    var contactname = document.getElementById("contactname").value;
+    var contactemail = document.getElementById("contactemail").value;
+    var contactnumber = document.getElementById("contactnumber").value;
+    var contactmessage = document.getElementById("contactmessage").value;
+
+    if(contactname == ""){
+        alert("Enter your name,please");
+        return false;
+    }
+    if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(contactemail)){
+        alert("Invalid email address");
+        return false;
+    }
+    if(contactnumber>999999999){
+        alert("Invalid phone number");
+        return false;
+    }
+    if(contactmessage ==""){
+        alert("Enter yout message ,please");
+        return false;
+    }
+    if(contactmessage.length >1000){
+        alert("You can not write more than 10000 words in this form.Plesae give us a phone call!");
+        return false;
+    }
+    return true;
 }

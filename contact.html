@@ -47,15 +47,15 @@
             <div class="flex">
                 <div class="box">
                   <p>name <span>*</span></p>
-                  <input type="text" name="name" required maxlength="20" placeholder="enter your name" class="input">  
+                  <input type="text" id = "contactname" name="name" required maxlength="20" placeholder="enter your name" class="input">  
                 </div>
                 <div class="box">
                     <p>email <span>*</span></p>
-                    <input type="email" name="email" required maxlength="50" placeholder="enter your email" class="input">  
+                    <input type="email" id = "contactemail" name="email" required maxlength="50" placeholder="enter your email" class="input">  
                   </div>
                   <div class="box">
                     <p>number <span>*</span></p>
-                    <input type="number" name="number" required min="0" max="9999999999" maxlength="20" placeholder="enter your number" class="input">  
+                    <input type="number" id = "contactnumber" name="number" required min="0" max="999999999" maxlength="20" placeholder="enter your number" class="input">  
                   </div>
                   <div class="box">
                     <p>role <span>*</span></p>
@@ -66,8 +66,8 @@
                   </div>
             </div>
             <p>message <span>*</span></p>
-            <textarea name="message" class="input" required maxlength="1000" placeholder="enter your message" cols="30" rows="10"></textarea>
-            <input type="submit" value="send message" name="send" class="btn">
+            <textarea name="message" id = "contactmessage" class="input" required maxlength="1000" placeholder="enter your message" cols="30" rows="10"></textarea>
+            <input type="submit" value="send message" name="send" class="btn" onclick="return validateContact()">
         </form>
     </section>
     
