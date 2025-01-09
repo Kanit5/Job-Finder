@@ -1,5 +1,28 @@
 <?php
-    
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "jobfinder";
+
+    $conn = new mysqli($servername,$username,$password,$dbname);
+
+    if($conn -> connect_error){
+        die ("Connection  failed" . $conn -> connect_error);
+    }
+
+    if(isset($_POST['submit'])){
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $pwd = $_POST['pass'];
+
+        $query = $conn->query("INSERT INTO  users(Emri,Email,Pass) values('$name','$email','$pwd')");
+
+        if($query){
+            echo "<script>alert('data inserted succesfully');</script>";
+        }else{
+            echo "<script>alert('Something went wrong');</script>";
+        }
+    }
 
 
 ?>
