@@ -1,25 +1,15 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "jobfinder";
-
-    $conn = new mysqli($servername,$username,$password,$dbname);
-
-    if($conn -> connect_error){
-        die ("Connection  failed" . $conn -> connect_error);
-    }
-
+    require 'connection.php';
     if(isset($_POST['submit'])){
         $name = $_POST['name'];
         $email = $_POST['email'];
         $pwd = $_POST['pass'];
 
-        $query = $conn->query("INSERT INTO  users(Emri,Email,Pass) values('$name','$email','$pwd')");
-
-        if($query){
+        try{
+            $query = $conn->query("INSERT INTO  users(Emri,Email,Pass) values('$name','$email','$pwd')");
             echo "<script>alert('data inserted succesfully');</script>";
-        }else{
+            header("Location: home.html");
+        }catch(Exception $e){
             echo "<script>alert('Something went wrong');</script>";
         }
     }
@@ -51,7 +41,7 @@
                 <a href="about.html">About Us</a>
                 <a href="jobs.html">All Jobs</a>
                 <a href="contact.html">Contact Us</a>
-                <a href="account.html">Account</a>
+                <a href="login.html">Account</a>
             </nav>
 
             <a href="post.html" class="btn" style="margin-top: 0;">Post Job</a>
