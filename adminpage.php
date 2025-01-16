@@ -23,6 +23,35 @@
 </section>
 </header>
 
+<div class = "adminpg">
+    <h1 style = "margin-left: 10%">Dashboard</h1>
+
+</div>
+<section class = "contact">
+    <div class = "box-container">
+        <?php
+        include("connection.php");
+        try{
+            $sql = "SELECT * FROM users";
+            $result = mysqli_query($conn,$sql);
+            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            $count = mysqli_count_rows($result);
+            if($count>0){
+                echo "<div class = 'box'>
+                <i class = 'fas fa-user'></i>
+                <h2>$count users</h2>
+                </div>";
+            }
+        }catch(Exception $e){
+            echo "<script>window.alert('Couldn't retrieve data');</script>";
+            header("Location: login.html");
+
+        }
+        
+        ?>
+        </div>
+    </section>
+
 
 
 
