@@ -30,28 +30,65 @@
 <section class = "contact">
     <div class = "box-container">
         <?php
-        include("connection.php");
-        try{
-            $sql = "SELECT * FROM users";
-            $result = mysqli_query($conn,$sql);
-            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-            $count = mysqli_count_rows($result);
-            if($count>0){
-                echo "<div class = 'box'>
-                <i class = 'fas fa-user'></i>
-                <h2>$count users</h2>
-                </div>";
-            }
-        }catch(Exception $e){
-            echo "<script>window.alert('Couldn't retrieve data');</script>";
-            header("Location: login.html");
-
-        }
+       include("connection.php");
+       try{
+           $sql = "SELECT * FROM users";
+           $result = mysqli_query($conn,$sql);
+           $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+           $count = mysqli_num_rows($result);
+           if($count>0){
+               echo "<div class = 'box'>
+                     <i class = 'fas fa-user'></i>  
+                     <h2>$count  users</h2>
+                   </div>";
+           }
+       }catch(Exception $e){    
+           echo "<script>window.alert('Couldnt retrieve data');</script>";
+           header("Location: login.html");
+           
+       }
         
         ?>
         </div>
     </section>
 
+    <footer class="footer">
+
+        <section class="grid">
+        
+        <div class="box">
+            <h3>Quick Links</h3>
+            <a href="home.html"><i class="fas fa-angle-right"></i>Home</a>
+            <a href="about.html"><i class="fas fa-angle-right"></i>About</a>
+            <a href="jobs.html"><i class="fas fa-angle-right"></i>All Jobs</a>
+            <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>      
+        </div>
+        
+        <div class="box">
+            <h3>Extra Links</h3>
+            <a href="account.html"><i class="fas fa-angle-right"></i>Account</a>
+            <a href="register.html"><i class="fas fa-angle-right"></i>Register</a>
+            <a href="post.html"><i class="fas fa-angle-right"></i>Post Job</a>
+        
+        </div>
+        
+        
+        <div class="box">
+            <h3>Follow Us</h3>
+            <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i>Facebook</a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i>Instagram</a>
+            <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i>Linkedin</a>
+        </div>
+        
+        </section>
+        
+    </footer>
+        
+
+
+    <script src="script.js"></script>
+</body>
+</html>
 
 
 
