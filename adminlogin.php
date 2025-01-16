@@ -1,3 +1,26 @@
+<?php
+    require 'connection.php';
+    if($_SERVER['REQUEST_METHOD']=='POST'){
+        if(isset($_POST['submit'])){
+            $email = $_POST['email'];
+            $pwd = $_POST['pass'];
+
+            $sql = "SELECT * From admin WHERE Email = '$email' and Pass = '$pwd'";
+            $result = mysqli_query($conn,$sql);
+            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            $count = mysqli_num_rows($result);
+            if($count==1){
+                echo '<script>window.alert("logged in succesfully");</script>';
+                header("Location: adminpage.php");
+            }else{
+                echo '<script>
+                    window.alert("Login failed. Invalid username or password");
+                </script>';
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
