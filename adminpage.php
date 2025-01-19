@@ -31,22 +31,46 @@
     <div class = "box-container">
         <?php
        include("connection.php");
-       try{
-           $sql = "SELECT * FROM users";
-           $result = mysqli_query($conn,$sql);
-           $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-           $count = mysqli_num_rows($result);
-           if($count>0){
-               echo "<div class = 'box'>
-                     <i class = 'fas fa-user'></i>  
-                     <h2>$count  users</h2>
+       
+       $sql = "SELECT COUNT(*) AS user_count FROM users";
+        $result = $conn->query($sql);
+
+        if($result){
+            $row = $result->fetch_assoc();
+            $count = $row['user_count'];
+
+            if($count>0){
+                echo "<div class='box'>
+                        <i class='fas fa-user'></i>  
+                        <h2>$count Users</h2>
+                    </div>";
+            } else {
+                echo "<div class='box'><h2>No Users</h2></div>";
+            }
+        }else{
+            die('Query failed  ' . $conn->error);
+        }
+
+       //Second stat
+       $sql = "SELECT COUNT(*) AS message_count FROM contact";
+       $result = $conn->query($sql);
+
+       if ($result) {
+           $row = $result->fetch_assoc();
+           $count = $row['message_count'];
+
+           if ($count > 0) {
+               echo "<div class='box'>
+                       <i class='fas fa-message'></i>  
+                       <h2>$count Messages</h2>
                    </div>";
+           } else {
+               echo "<div class='box'><h2>No Messages</h2></div>";
            }
-       }catch(Exception $e){    
-           echo "<script>window.alert('Couldnt retrieve data');</script>";
-           header("Location: login.html");
-           
+       } else {
+           die("Query failed: " . $conn->error);
        }
+
         
         ?>
         </div>

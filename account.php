@@ -5,18 +5,22 @@ if(isset($_POST['submit'])){
         $email = $_POST['email'];
         $pwd = $_POST['pass'];
 
-        $sql = "SELECT * FROM users WHERE Email = '$email' and Pass = '$pwd'" ;
-        $result = mysqli_query($conn,$sql);
-        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-        $count = mysqli_num_rows($result);
-        if($count == 1){
-            echo '<script>window.alert("Logged in succesfully");</script>';
-        }
-        else{
-            echo '<script>
-                window.alert("Login failed. Invalid username or password");
-            </script>';
-        }
+            $sql = "SELECT COUNT(*) AS user_login FROM users Where Email = '$email' and Pass = '$pwd'";
+            $result = $conn->query($sql);
+
+            if($result){
+                $row = $result->fetch_assoc();
+                $count = $row['user_login'];
+
+                if($count==1){
+                    echo '<script>window.alert("Logged in Succesfully")</script>';
+                    header("Location: home.html" );
+                }else{
+                    echo '<script>window.alert("Login failed.Invalid email or password")</script>';
+                }
+            }else{
+                die("Query failed :  " . $conn->error);
+            }
     }
 }
 
