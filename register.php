@@ -10,7 +10,7 @@
             echo "<script>alert('data inserted succesfully');</script>";
             header("Location: home.html");
         }catch(Exception $e){
-            echo "<script>alert('Something went wrong');</script>";
+            echo "<script>alert('This Email address is already taken');</script>";
         }
     }
 
