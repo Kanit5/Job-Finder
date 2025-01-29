@@ -36,3 +36,38 @@
     <a href = "mail:jobfinders@gmail.com">jobfinders@gmail.com></a>
     <a href = "mail:jobfinders@outlook.com">jobfinders@outlook.com</a>
 </div>
+
+<div class = "box">
+    <i class = "fas fa-map-marker-alt"></i>
+    <a href = "#">Building number 10 in the Mbreteresha Teute,Mitrovica,Kosovo></a>
+</div>
+</div>
+<form action = "" method = "post">
+    <h3>drop your message</h3>
+    <div class = "flex">
+        <div class = "box">
+            <p>name<span>*</span></p>
+            <input type = "text" id = "contactname" name = "name" required maxlength = "20" placeholder = "enter your name" class = "input">  
+            </div>
+                <div class = "box">
+                <p>email<span>*</span></p>
+                <input type = "email" id = "contactemail" name = "email" required maxlength = "50" placeholder = "enter your email" class = "input">  
+            </div>
+                <div class = "box">
+                <p>number<span>*</span></p>
+                <input type = "number" id = "contactnumber" name = "number" required min = "0" max = "999999999" maxlength = "20" placeholder = "enter your number" class = "input">  
+            </div>
+            <div class = "box">
+                <p>role<span>*</span></p>
+                <select name = "role" required class = "input">
+                    <option value = "employee">job seeker (employee)</option>
+                    <option value = "employer">job provider (employer)</option>
+</select>
+</div>
+        <p>message<span>*</span></p>
+        <<textarea name = "message" id = "contactmessage" class = "input" required maxlength = "1000" placeholder = "enter your message" cols = "30" rows = "10"></textarea>
+        <input type = "submit" value = "send message" name = "send" class = "btn" onclick = "return validateContact()">
+</form>
+</section>
+
+
