@@ -1,21 +1,26 @@
 <?php
-    require 'connection.php';
-    if(isset($_POST['submit'])){
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $pwd = $_POST['pass'];
+include_once 'connection.php';
+include_once 'User.php';
 
-        try{
-            $query = $conn->query("INSERT INTO  users(Emri,Email,Pass) values('$name','$email','$pwd')");
-            echo "<script>alert('data inserted succesfully');</script>";
-            header("Location: home.html");
-        }catch(Exception $e){
-            echo "<script>alert('This Email address is already taken');</script>";
-        }
+if($_SERVER["REQUEST_METHOD"] == 'POST'){
+    $db = new Database();
+    $connection = $db -> getConnection();
+    $user = new User($connection);
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+
+    //Register the user
+    if ($user -> register($name,$email,$password)) {
+        header("Location: home.php");
+        exit;
+    } else {
+        echo "<script> alert ('Error registering user!'); </script>";
     }
-
-
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
