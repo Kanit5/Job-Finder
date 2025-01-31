@@ -1,28 +1,34 @@
 <?php 
-require'connection.php';
-if($_SERVER['REQUEST_METHOD']=='POST'){
-if(isset($_POST['submit'])){
-        $email = $_POST['email'];
-        $pwd = $_POST['pass'];
+session_start();
 
-            $sql = "SELECT COUNT(*) AS user_login FROM users Where Email = '$email' and Pass = '$pwd'";
-            $result = $conn->query($sql);
+include_once 'connection.php';
+include_once 'User.php';
 
-            if($result){
-                $row = $result->fetch_assoc();
-                $count = $row['user_login'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $db = new Database();
+    $connection = $db->getConnection();
+    $user = new User($connection);
 
-                if($count==1){
-                    echo '<script>window.alert("Logged in Succesfully")</script>';
-                    header("Location: home.html" );
-                }else{
-                    echo '<script>window.alert("Login failed.Invalid email or password")</script>';
-                }
-            }else{
-                die("Query failed :  " . $conn->error);
-            }
+    // Get form data
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+
+    // Attempt to log in
+    if ($user->login($email, $password)) {
+        header("Location: home.php"); // Redirect to home page
+        exit;
+    } else {
+        echo "<script>alert('Invalid login credentials!');</script>";
     }
 }
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > $_SESSION['session_expire'])) {
+    session_unset();     
+    session_destroy();  
+    header("Location: login.html");
+    exit();
+}
+
+$_SESSION['last_activity'] = time();
 
 ?>
 
