@@ -1,12 +1,21 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "jobfinder";
+    class Database{
+        private $servername = "localhost";
+        private $username = "root";
+        private $password = "";
+        private $dbname = "jobfinder";
+        private $conn;
 
+        public function __construct(){
+            try{
+                $this->conn = new mysqli($this->servername,$this->username,$this->password,$this->dbname);
+            }catch(Exception $e){
+                die("Connection failed: " . $e->getMessage());
+            }
+        }
 
-$conn = new mysqli($servername,$username,$password,$dbname);
+        public function getConnection(){
+            return $this->conn;
+        }
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    }
