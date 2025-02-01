@@ -48,4 +48,33 @@ class User{
         }
         return false;
     }
+
+    public function count_Users(){
+        $sql = "SELECT COUNT(*) AS user_count FROM {$this->table_name}";
+        $result = $this->conn->query($sql);
+
+        if($result){
+            $row = $result->fetch_assoc();
+            return $row['user_count'];
+        }else{
+            die("Query failed" . $this->conn->error);
+        }
+    }
+
+    public function showUserCount(){
+        $count = $this->count_Users();
+
+        if($count>0){
+            echo "<div class='box'>
+                    <i class='fas fa-user'></i>  
+                    <h2>$count Users</h2><br>
+                    <a href ='#' class = 'btn' style = 'color:white;'>View all users</a>
+
+                </div>";
+        } else {
+            echo "<div class='box'><h2>No Users</h2></div>";
+        }
+    }
+    
 }
+
