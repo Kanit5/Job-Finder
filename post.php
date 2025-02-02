@@ -1,3 +1,47 @@
+<?php
+
+include_once 'connection.php';
+include_once 'Job.php';
+
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php"); // Redirect to login if not logged in
+    exit;
+}
+
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > $_SESSION['session_expire'])) {
+    session_unset();     
+    session_destroy();   
+    header("Location: login.php"); 
+    exit();
+}
+$_SESSION['last_activity'] = time();
+
+if ($_SERVER["REQUEST_METHOD"]=='POST'){
+    $db = new Database();
+    $connection = $db->getConnection();
+    $job = new Job($connection);
+
+    $company = $_POST['company'];
+    $title = $_POST['jobttl'];
+    $city = $_POST['city'];
+    $email = $_POST['email'];
+    $salary = $_POST['salary'];
+    $jtype = $_POST['type'];
+
+   
+    if ($job->new_job($company,$title,$city,$email,$salary,$jtype)) {
+        echo "<script>alert('Job added succesfully');</script>"; 
+    }else{
+        echo"<script>alert('Something went wrong');</script>";
+    } 
+   
+}  
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
