@@ -13,8 +13,8 @@ if($_SERVER["REQUEST_METHOD"] == 'POST'){
 
     //Register the user
     if ($user->register($name,$email,$password)) {
-        header("Location: home.php");
         session_start();
+        header("Location: home.php");
         exit;
     } 
 }
