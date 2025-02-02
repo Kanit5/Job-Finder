@@ -51,4 +51,27 @@ class Message{
          echo "<div class = 'box'><h2>No messages</h2></div>";
         }
     }
+    public function getMessages() {
+        $sql = "SELECT * FROM contact";
+        $result = $this->conn->query($sql);
+
+        $msgs = [];
+        while ($row = $result->fetch_assoc()) {
+            $msgs[] = $row;
+        }
+
+        return $msgs;
+    }
+
+    public function deleteMessages($id){
+        $sql = "DELETE FROM contact WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
