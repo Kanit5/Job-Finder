@@ -42,7 +42,7 @@ class Message{
 
         if ($count > 0){
             echo "<div class = 'box'>
-            <i class = 'fas-fa-message'></i>
+            <i class = 'fas fa-message'></i>
             <h2>$count Messages</h2><br>
             </div>";
         } else {
