@@ -11,11 +11,6 @@
            $message = new Message($connection);
            $job = new Job($connection);
 
-           if(!$admin->login($email,$password)){
-            header("Location: login.php"); 
-            exit();
-        }
-
            if (isset($_GET['delete_id'])) {
             $delete_id = intval($_GET['delete_id']);
                 if ($user->deleteUsers($delete_id)) {
