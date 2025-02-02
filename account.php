@@ -54,6 +54,11 @@ $_SESSION['last_activity'] = time();
                     <a href = "contact.php">Contact Us</a>
                     <a href = "login.php">Account</a>
                 </nav>
+                <?php
+                if (isset($_SESSION['user_id'])) {
+                    echo "<a href = 'logout.php' class = 'btn' style = 'margin-top:0;'>Log Out</a>";
+                }
+            ?>   
                 <a href = "post.php" class = "btn" style = "margin-top: 0;">Post Jobs</a>
         </section>
     </header>

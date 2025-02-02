@@ -79,12 +79,23 @@ if ($_SERVER["REQUEST_METHOD"]=='POST'){
 
             <form action="" method="post" onsubmit="return validatePostJob()">
                 <h3>Post a job</h3>
-                <input type="text" required id = "name2" name="name" maxlength="20" placeholder="Name of the Company" class="input">
-            <input type="email" required id = "email3" name="email" maxlength="50" placeholder="Enter your email" class="input">
-            <input type="text" required id = "jobttl" name="jobttl" maxlength="50" placeholder="Job Title" class="input">
-            <input type = "text" required id = "place" name = "place" maxlength="100" placeholder="The location " class = "input"><br>
-            <input type="submit" value="Post Job" name="submit" class="btn">
-    
+                <input type="text" required id = "name2" name="company" maxlength="20" placeholder="Name of the Company" class="input">
+                <input type="text" required id = "jobttl" name="jobttl" maxlength="50" placeholder="Job Title" class="input">
+                <select name="city" required class="input">
+                        <option value="Prishtina">Prishtina</option>
+                        <option value="Mitrovica">Mitrovica</option>
+                        <option value="Prizren">Prizren</option>
+                        <option value="Peje">Peje</option>
+                        <option value="Gjakove">Gjakove</option>
+                    </select>
+                <input type="email" required id = "email3" name="email" maxlength="50" placeholder="Enter your email" class="input">
+                <input type = "number" required id = "salary" name = "salary" placeholder = "Monthly salary" class = "input">
+                <select name="type" required class="input">
+                    <option value="Internship">Internship</option>
+                    <option value="Full-time">Full-Time</option>
+                    <option value="Part-time">Part-time</option>
+                </select>
+                <input type="submit" value="Post Job" name="submit" class="btn">
             </form>
         </section>
     </div>

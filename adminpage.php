@@ -67,6 +67,7 @@
                 <a href = "contact.php">Contact Us</a>
                 <a href = "login.php">Account</a>
 </nav>
+<a href = 'logout.php' class = 'btn' style = 'margin-top:0;'>Log Out</a>
 <a href = "post.php" class = "btn" style = "margin-top: 0;">Post Jobs</a>
 </section>
 </header>
@@ -94,6 +95,100 @@
       ?>   
         </div>
     </section>
+
+    <h1>Users table</h1>
+    <table class = "userTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Register Date</th>
+                <th>Delete User</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($users as $user): ?>
+        <tr>
+            <td><?= htmlspecialchars($user['Id']) ?></td>
+            <td><?= htmlspecialchars($user['Emri']) ?></td>
+            <td><?= htmlspecialchars($user['Email']) ?></td>
+            <td><?= htmlspecialchars($user['Pass']) ?></td>
+            <td><?= htmlspecialchars($user['RegDate']) ?></td>
+            <td><a href="?delete_id=<?= $user['Id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a></td>
+        </tr>
+        <?php endforeach; ?>   
+        </tbody>
+
+    </table>
+<br>
+    <h1>Messages table</h1>
+    <table class = "messageTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Role</th>
+                <th>Message</th>
+                <th>Date Received</th>
+                <th>Delete Message</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($msgs as $message): ?>
+        <tr>
+            <td><?= htmlspecialchars($message['Id']) ?></td>
+            <td><?= htmlspecialchars($message['Name']) ?></td>
+            <td><?= htmlspecialchars($message['Email']) ?></td>
+            <td><?= htmlspecialchars($message['Number']) ?></td>
+            <td><?= htmlspecialchars($message['Role']) ?></td>
+            <td><?= htmlspecialchars($message['Message']) ?></td>
+            <td><?= htmlspecialchars($message['DateSent']) ?></td>
+            <td><a href="?delete_msg_id=<?= $message['Id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this message?');">Delete</a></td>
+        </tr>
+        <?php endforeach; ?>
+            
+        </tbody>
+
+    </table>
+<br>
+    <h1>Jobs table</h1>
+    <table class = "jobtable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Company</th>
+                <th>Job Title</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Salary</th>
+                <th>Job Type</th>
+                <th>Date Posted</th>
+                <th>Delete Job</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($jobs as $job): ?>
+        <tr>
+            <td><?= htmlspecialchars($job['Id']) ?></td>
+            <td><?= htmlspecialchars($job['Company']) ?></td>
+            <td><?= htmlspecialchars($job['Title']) ?></td>
+            <td><?= htmlspecialchars($job['City']) ?></td>
+            <td><?= htmlspecialchars($job['Email']) ?></td>
+            <td><?= htmlspecialchars($job['Salary']) ?></td>
+            <td><?= htmlspecialchars($job['JobType']) ?></td>
+            <td><?= htmlspecialchars($job['DatePosted']) ?></td>
+            <td><a href="?delete_job_id=<?= $job['Id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this job?');">Delete</a></td>
+        </tr>
+        <?php endforeach; ?>
+            
+        </tbody>
+
+    </table>
+<br>
 
     <footer class="footer">
 

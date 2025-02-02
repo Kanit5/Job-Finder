@@ -59,200 +59,32 @@ $_SESSION['last_activity'] = time();
         </section>
     </header>
 
-    <section class = "job-filter">
-        <h1 class = "heading">filter jobs</h1>
-
-        <form action = "" method = "post">
-            <div class = "flex">
-                <div class = "box">
-                    <p>job title<span>*</span></p>
-                    <input type = "text" name = "title" placeholder="Keyword , Category or Company" required maxlength="20" class = "input">
-                </div>
-                <div class = "box">
-                    <p>Job location</p>
-                    <input type = "text" name = "location" placeholder="City , State or Country" required maxlength="50" class = "input">
-                </div>
-            </div>
-            <div class="dropdown-container">
-                <div class="dropdown">
-                    <input type="text" readonly placeholder="date posted" name="date" maxlength="20" class="output">
-                    <div class="lists">
-                        <p class="items">today</p>
-                        <p class="items">3 days ago</p>
-                        <p class="items">7 days ago</p>
-                        <p class="items">10 days ago</p>
-                        <p class="items">15 days ago</p>
-                        <p class="items">30 days ago</p>
-                    </div>
-                </div>
-            <div class="dropdown">
-                <input type="text" readonly name="date" placeholder="estimated salary" maxlength="20" class="output">
-                <div class="lists">
-                    <p class="items">1k or less</p>
-                    <p class="items">1k - 5k</p>
-                    <p class="items">5k - 10k</p>
-                    <p class="items">10k - 15k</p>
-                    <p class="items">15k - 20k</p>
-                    <p class="items">20k - 25k</p>
-                    <p class="items">25k - 30k</p>
-                    <p class="items">30k - 35k</p>
-                </div>
-            </div>   
-            <div class="dropdown">
-                <input type="text" readonly name="date" placeholder="job type" maxlength="20" class="output">
-                <div class="lists">
-                    <p class="items">full-time</p>
-                    <p class="items">part-time</p>
-                    <p class="items">intership</p>
-                    <p class="items">contract</p>
-                    <p class="items">temperary</p>
-                    <p class="items">fresher</p>
-                </div>
-            </div> 
-            <div class="dropdown">
-                <input type="text" readonly name="date" placeholder="education level" maxlength="20" class="output">
-                <div class="lists">
-                    <p class="items">10th pass</p>
-                    <p class="items">12th pass</p>
-                    <p class="items">bachelor degree</p>
-                    <p class="items">master degree</p>
-                    <p class="items">diploma</p>
-                </div>
-            </div>
-            <div class="dropdown">
-                <input type="text" readonly name="date" placeholder="work shifts" maxlength="20" class="output">
-                <div class="lists">
-                    <p class="items">day shift</p>
-                    <p class="items">night shift</p>
-                    <p class="items">flexible shift</p>
-                    <p class="items">fixed shift</p>
-                </div>
-            </div>
-            </div>
-            <div class = "flex">
-                <div class = "box" >
-                    <a href = "#" class = "btn" style = "background-color: var(--main-color);color:var(--white);">Filter Search</a>
-                    
-                </div>
-            </div>
-        </form>
-    </section>
+    
 
 <section class="jobs-container">
 
     <h1 class="heading">All Jobs</h1>
 
     <div class="box-container">
-        <div class="box">
+    <?php foreach ($jobs as $job): ?>
+                <div class="box">
             <div class="company">
-                <img src="photo.1.png" alt="Company Logo">
+                <img src="techcompany.png" alt="Company Logo">
             </div>
-            <h3>IT Infosys Co.</h3>
-            <p>2 days ago</p>
-            <h3 class="job-title">Senior Web Developer</h3>
-            <p class="location"><i class="fas fa-map-marker-alt"></i><span>Pristina,Pristina</span></p>
+            <h2><?= htmlspecialchars($job['Company']) ?></h2>
+            <p><?= htmlspecialchars($job['DatePosted']) ?></p>
+            <h3 class="job-title"><?= htmlspecialchars($job['Title']) ?></h3>
+            <p class="location"><i class="fas fa-map-marker-alt"></i><span><?= htmlspecialchars($job['City']) ?></span></p>
            <div class="tags">
-            <p><i class="fas fa-dollar-sign"></i> <span>10k - 20k</span></p>
-            <p><i class="fas fa-briefcase"></i> <span>Part-time</span></p>
-            <p><i class="fas fa-clock"></i> <span>Day shift</span></p>
+            <p><i class="fas fa-dollar-sign"></i> <span><?= htmlspecialchars($job['Salary']) ?></span></p>
+            <p><i class="fas fa-briefcase"></i> <span><?= htmlspecialchars($job['JobType']) ?></span></p>
+            <div class="flex-btn">
+                     
+            </div>
+        </div>
            </div> 
-           <div class="flex-btn">
-            <a href="view_job.html" class="btn">View Details</a>
-            <button type="submit" class="far fa-heart" name="save"></button>            
-        </div>
+            <?php endforeach; ?>
     </div>
-    <div class="box">
-        <div class="company">
-            <img src="photo.2.png" alt="Company Logo">
-        </div>
-        <h3>All Media ITD</h3>
-        <p>2 days ago</p>
-        <h3 class="job-title">Qualified Developer</h3>
-        <p class="location"><i class="fas fa-map-marker-alt"></i> <span>Pristina, Pristina</span></p>
-        <div class="tags">
-        <p><i class="fas fa-dollar-sign"></i> <span>9000</span></p>
-        <p><i class="fas fa-briefcase"></i> <span>Full-time</span></p>
-        <p><i class="fas fa-clock"></i> <span>Flexible shift</span></p>
-        </div>
-        <div class="flex-btn">
-        <a href="view_job.html" class="btn">View Details</a>
-        <button type="submit" class="far fa-heart" name="save"></button>
-    </div>
-    </div>
-
-     <div class="box">
-        <div class="company">
-        <img src="photo.3.png" alt="Company Logo">
-        </div>
-        <h3>Software Solutions</h3>
-        <p>Posted Today</p>
-          <h3 class="job-title">JavaScript Developer</h3>
-         <p class="location"><i class="fas fa-map-marker-alt"></i> <span>Pristina, Pristina</span></p>
-           <div class="tags">
-          <p><i class="fas fa-dollar-sign"></i> <span>10k-30k</span></p>
-         <p><i class="fas fa-briefcase"></i> <span>Internship</span></p>
-          <p><i class="fas fa-clock"></i> <span>Night shift</span></p>
-           </div>
-        <div class="flex-btn">
-         <a href="view_job.html" class="btn">View Details</a>
-        <button type="submit" class="far fa-heart" name="save"></button>
-    </div>
-    </div>
-    <div class="box">
-        <div class="company">
-        <img src="photo.4.png" alt="Company Logo">
-           </div>
-         <h3>IT World</h3>
-           <p>19 days ago</p>
-         <h3 class="job-title">Bootstrap Developer</h3>
-          <p class="location"><i class="fas fa-map-marker-alt"></i> <span>Pristina, Pristina</span></p>
-         <div class="tags">
-        <p><i class="fas fa-dollar-sign"></i> <span>20k - 50k</span></p>
-         <p><i class="fas fa-briefcase"></i> <span>Contract</span></p>
-          <p><i class="fas fa-clock"></i> <span>Fixed shift</span></p>
-          </div>
-           <div class="flex-btn">
-         <a href="view_job.html" class="btn">View Details</a>
-        <button type="submit" class="far fa-heart" name="save"></button>
-    </div>
-    </div>
-    <div class="box">
-        <div class="company">
-        <img src="photo.6.png" alt="Company Logo">
-         </div>
-         <h3>IT World</h3>
-          <p>2 days ago</p>
-          <h3 class="job-title">MySQL Database</h3>
-          <p class="location"><i class="fas fa-map-marker-alt"></i> <span>Pristina, Pristina</span></p>
-          <div class="tags">
-             <p><i class="fas fa-dollar-sign"></i> <span>8k - 15k</span></p>
-            <p><i class="fas fa-briefcase"></i> <span>Temporary</span></p>
-           <p><i class="fas fa-clock"></i> <span>Flexible shift</span></p>
-         </div>
-          <div class="flex-btn">
-            <a href="view_job.html" class="btn">View Details</a>
-           <button type="submit" class="far fa-heart" name="save"></button>
-          </div>
-         </div>
-         <div class="box">
-            <div class="company">
-             <img src="photo.5.png" alt="Company Logo" >
-              </div>
-             <h3>Mass Idea</h3>
-            <p>2 days ago</p>
-            <h3 class="job-title">PHP Developer</h3>
-             <p class="location"><i class="fas fa-map-marker-alt"></i> <span>Pristina, Pristina</span></p>
-             <div class="tags">
-              <p><i class="fas fa-dollar-sign"></i> <span>15k - 25k</span></p>
-                <p><i class="fas fa-briefcase"></i> <span>Fresher</span></p>
-              <p><i class="fas fa-clock"></i> <span>Full shift</span></p>
-            </div>
-              <div class="flex-btn">
-                <a href="view_job.html" class="btn">View Details</a>
-            <button type="submit" class="far fa-heart" name="save"></button>    
-            </div>
-         </div>
-    </div>     
 </section>
 
 <footer class="footer">
