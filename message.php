@@ -38,7 +38,7 @@ class Message{
     }
 
     public function showMessageCount (){
-        $count = $this->count_Message();
+        $count = $this->count_Messages();
 
         if ($count > 0){
             echo "<div class = 'box'>
