@@ -76,5 +76,26 @@ class User{
         }
     }
     
-}
+    public function getUsers(){
+        $sql = "SELECT * FROM users";
+        $result = $this -> conn -> query($sql);
 
+        $users = [];
+        while ($row = $result -> fetch_assoc()){
+            $users[] = $row;
+        }
+        return $users;
+    }
+
+    public function deleteUsers($id){
+        $sql = "DELETE FROM users WHERE id = ?";
+        $stmt = $this -> conn -> prepare($sql);
+        $stmt -> bind_param("i", $id);
+
+        if ($stmt -> execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
