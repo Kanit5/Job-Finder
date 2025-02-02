@@ -20,7 +20,7 @@ $_SESSION['last_activity'] = time();
 
 if ($_SERVER["REQUEST_METHOD"] == 'POST'){
     $db = new Database();
-    $connection = $db -> getConnection();
+    $connection = $db->getConnection();
     $message = new Message($connection);
 
     $name = $_POST['name'];
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST'){
     $msg = $_POST['message'];
 
     // Register the user
-    if ($message -> new_message($name,$email,$number,$role,$msg)){
+    if ($message->new_message($name,$email,$number,$role,$msg)){
         echo "<script>alert('Message sent!');</script>";
         header("Location: contact.php");
         exit;

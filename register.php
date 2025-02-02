@@ -4,7 +4,7 @@ include_once 'User.php';
 
 if($_SERVER["REQUEST_METHOD"] == 'POST'){
     $db = new Database();
-    $connection = $db -> getConnection();
+    $connection = $db->getConnection();
     $user = new User($connection);
 
     $name = $_POST['name'];
@@ -12,12 +12,11 @@ if($_SERVER["REQUEST_METHOD"] == 'POST'){
     $password = $_POST['pass'];
 
     //Register the user
-    if ($user -> register($name,$email,$password)) {
+    if ($user->register($name,$email,$password)) {
         header("Location: home.php");
+        session_start();
         exit;
-    } else {
-        echo "<script> alert ('Error registering user!'); </script>";
-    }
+    } 
 }
 ?>
 

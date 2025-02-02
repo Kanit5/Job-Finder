@@ -44,8 +44,7 @@ class Job{
             echo "<div class='box'>
                     <i class='fas fa-briefcase'></i>  
                     <h2>$count Jobs</h2><br>
-                    <a href ='#' class = 'btn' style = 'color:white;'>View all Jobs</a>
-
+                    
                 </div>";
         } else {
             echo "<div class='box'>

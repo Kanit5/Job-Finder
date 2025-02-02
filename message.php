@@ -4,20 +4,20 @@ class Message{
     private $table_name = "contact";
 
     public function __construct($db){
-        $this -> conn = $db;
+        $this->conn = $db;
     }
 
     public function new_message($name, $email, $number, $role, $msg){
-        $query = "INSERT INTO [$this->table_name} (Name, Email, Number, Role, Message) values (?,?,?,?,?)";
+        $query = "INSERT INTO [$this->table_name} (Name,Email,Number,Role,Message) values (?,?,?,?,?)";
 
         $stmt = $this->conn->prepare($query);
         if (!$stmt){
-            die ("Prepare failed" . $this -> conn -> error);
+            die ("Prepare failed" . $this->conn->error);
         }
 
 
         // Bind parameters
-        $stmt->bind_param("ssiss", $name, $email, $number, $role, $msg);
+        $stmt->bind_param("ssiss", $name,$email,$number,$role,$msg);
 
         if ($stmt->execute()){
             return true;
@@ -44,8 +44,6 @@ class Message{
             echo "<div class = 'box'>
             <i class = 'fas-fa-message'></i>
             <h2>$count Messages</h2><br>
-            <a href = '#' class = 'btn' style = 'color:white;'>View all Messages</a>
-
             </div>";
         } else {
          echo "<div class = 'box'><h2>No messages</h2></div>";

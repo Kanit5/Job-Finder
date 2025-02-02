@@ -67,7 +67,7 @@ $_SESSION['last_activity'] = time();
 
     <div class="box-container">
     <?php foreach ($jobs as $job): ?>
-                <div class="box">
+            <div class="box">
             <div class="company">
                 <img src="techcompany.png" alt="Company Logo">
             </div>
@@ -78,12 +78,10 @@ $_SESSION['last_activity'] = time();
            <div class="tags">
             <p><i class="fas fa-dollar-sign"></i> <span><?= htmlspecialchars($job['Salary']) ?></span></p>
             <p><i class="fas fa-briefcase"></i> <span><?= htmlspecialchars($job['JobType']) ?></span></p>
-            <div class="flex-btn">
-                     
+            
             </div>
-        </div>
-           </div> 
-            <?php endforeach; ?>
+        </div> 
+        <?php endforeach; ?>
     </div>
 </section>
 
@@ -121,21 +119,7 @@ $_SESSION['last_activity'] = time();
     
     <script src="script.js"></script>
     
-    <script>
     
-    let dropdown_items = document.querySelectorAll('.job-filter form .dropdown-container .dropdown .lists .items');
-    
-    dropdown_items.forEach(items => {
-        items.onclick = () =>{
-            items_parent = items.parentElement.parentElement;
-            let output = items_parent.querySelector('.output');
-            output.value = items.innerText;
-        }
-    });
-    
-    
-    
-    </script>
 
 
 

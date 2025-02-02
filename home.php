@@ -26,99 +26,104 @@ $_SESSION['last_activity'] = time();
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        * {box-sizing: border-box}
-        body {font-family: Verdana, sans-serif; margin:0}
-        .myslides {display: none}
-        img {vertical-align: middle;}
+         * {box-sizing: border-box}
+    body {font-family: Verdana, sans-serif; margin:0}
+    .mySlides {display: none}
+
+    .mySlides img{
+        width: 80%;
+        margin-left: 10%;
+    }
+    img {vertical-align: middle;}
         .slideshow-container {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
-        }
-        .home-container .home{
-            display: flex;
-            flex-direction: column;
-        }
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+    .home-container .home {
+        display: flex;
+        flex-direction: column;
+    }
 
 
 
-        /* Next & Previous buttons */
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-        }
-        /* Position the "next button" to the right */
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
+    /* Next & previous buttons */
+    .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    }
+    /* Position the "next button" to the right */
+    .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    }
 
-        /* On hover, add a black background color with a little bit see through */
-        .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    }
 
-        /* Caption text */
-        .text {
-            color: #f2f2f2;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
+    /* Caption text */
+    .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    }
 
-        /* Number text (1/3 etc) */
-        .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-        }
+    /* Number text (1/3 etc) */
+    .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    }
 
-        /* The dots/bullets/indicators */
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
+    /* The dots/bullets/indicators */
+    .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    }
 
-        .active, .dot:hover {
-            background-color: #717171;
-        }
+    .active, .dot:hover {
+    background-color: #717171;
+    }
 
-        /* Fading animation */
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
+    /* Fading animation */
+    .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    }
 
-        @keyframes fade {
-            from {opacity: .4}
-            to {opacity: 1}
-        }
+    @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+    }
 
-        /* On smaller screens, decrease text size */
-        @media only screen and (max-width: 300px) {
-            .prev, .next, .text {font-size: 11px;}
-        }
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+    }
     </style>
 </head>
 <body>
@@ -144,99 +149,27 @@ $_SESSION['last_activity'] = time();
     
     <div class = "home-container">
         <section class = "home">
-            <div class = "slideshow-container" style = "width: 100%;">
+            <div class="slideshow-container" style = "width: 100%;">
+  
 
-                <div class = "mySlides fade" >
-                    <section class = "jobs-container">
-
-                        <div class = "box-container">
-                            
-                            <div class= "box">
-                                <div class = "company">
-                                    <img src = "photo.1.png" alt = "Company Logo">
-                                </div>
-                                <h3>IT Infosys Co.</h3>
-                                <p>2 days ago</p>
-                                <h3 class = "job-title">Senior Web Developer</h3>
-                                <p class = "location"><i class = "fas fa-map-marker-alt"></i> <span>Pristina, Kosovo</span></p>
-                                <div class = "tags">
-                                    <p><i class ="fas fa-dollar-sign"></i> <span>10k - 20k</span></p>
-                                    <p><i class ="fas fa-briefcase"></i> <span>Part-time</span></p>
-                                    <p><i class ="fas fa-clock"></i> <span>Day shift</span></p>
-                                </div>
-                                <div class="flex-btn">
-                                    <a href = "view_job.html" class = "btn">View Details</a>
-                                    <button type = "submit" class = "far fa-heart" name = "save"></button>
-                                </div>
-                                </div>
-                            </div>
-                    </section>
-                </div>
-
-
-            <div class = "mySlides fade">
-
-                <section class = "jobs-container">
-                    <div class = "box-container">
-                        <div class = "box">
-                            <div class = "company">
-                                <img src = "photo.2.png" alt = "Company Logo">
-                            </div>
-                            <h3> All Media ITD</h3>
-                            <p>2 days ago</p>
-                            <h3 class = "job-title">Qualified Developer</h3>
-                            <p class = "location"><i class = "fas fa-map-marker-alt"></i> <span>Mitrovica, Kosovo</span></p>
-                            <div class="tags">
-                                <p><i class = " fas fa-dollar-sign"></i> <span>9000</span></p>
-                                <p><i class ="fas fa-briefcase"></i> <span>Full-time</span></p>
-                                <p><i class ="fas fa-clock"></i> <span>Flexible shift</span></p>
-                            </div>
-                            <div class="flex-btn">
-                                <a href = "view_job.html" class = "btn">View Details</a>
-                                <button type = "submit" class = "far fa-heart" name = "save"></button>
-                            </div>
-                        </div>
-
+                    <div class="mySlides fade">
+                      <img src="find-your-dream-job.png">
                     </div>
-                </section>
-                </div>
-
-
-
-                <div class = "mySlides fade">
-                    <section class = "jobs-container">
-                        <div class = "box-container">
-                            <div class = "box">
-                                <div class = "company">
-                                    <img src = "photo.3.png" alt = "Company Logo">
-                                </div>
-                                <h3>Software Solutions</h3>
-                                <p>Posted Today</p>
-                                <h3 class = "job-title">JavaScript Developer</h3>
-                                <p class = "location"><i class = "fas fa-map-marker-alt"></i> <span>Peja, Kosovo</span></p>
-                                    <div class = "tags">
-                                        <p><i class = " fas fa-dollar-sign"></i> <span>10k-30k</span></p>
-                                        <p><i class ="fas fa-briefcase"></i> <span>Internship</span></p>
-                                        <p><i class ="fas fa-clock"></i> <span>Night shift</span></p>
-                                    </div>
-                                    <div class="flex-btn">
-                                        <a href = "view_job.html" class = "btn">View Details</a>
-                                        <button type = "submit" class = "far fa-heart" name = "save"></button>
-                                    </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-
-
-
-
-                <a class="prev"  onclick="plusSlides(-1)">❮</a>
-                <a class="next" onclick="plusSlides(1)">❯</a>
-                
-                </div>
-                <br>
+                    
+                    <div class="mySlides fade">
+                     <img src = "download.png">
+                     
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <img src="download2.png" style = "height:50%;">
+                      <a href = "contact.php" class = "btn" style = "display:flex;justify-content:center;">Contact us Now!!</a>
+                    </div>
+                    
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                    
+                    </div>
                 
                 <div style="text-align:center">
                   <span class="dot" onclick="currentSlide(1)"></span> 
@@ -273,9 +206,6 @@ $_SESSION['last_activity'] = time();
                 }
                 </script>
                 
-        </section>
-    </div>
-     
         </section>
     </div>
 

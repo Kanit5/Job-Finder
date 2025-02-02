@@ -8,18 +8,28 @@ class User{
     }
 
     public function register($name,$email,$password){
-        $query = "INSERT INTO {$this->table_name} (Emri,Email,Pass) values(?,?,?)";
+        $query = "INSERT INTO {$this->table_name} (Emri,Email,Pass) VALUES (?,?,?)";
 
-        $stmt = $this->conn->prepare($sql);
-        if(!$stmt){
-            die("Prepare failed" . $this->conn->error);
-        }
+        $stmt = $this->conn->prepare("SELECT Email From users Where Email = ?");
+        $stmt->bind_param("s",$email);
+        $stmt->execute();
+        $stmt->store_result();
+        if ($stmt->num_rows > 0) {
+            echo "<script>alert('Email already taken!');</script>";
+        } else {
+            $insert_stmt = $this->conn->prepare($query);
+            if(!$insert_stmt){
+                die("Prepare failed" . $this->conn->error);
+            }
 
-        $stmt->bind_param("sss",$name,$email,$password);
-        if($stmt->execute()){
-            return true;
+            // Bind parameters
+            $insert_stmt->bind_param("sss", $name,$email, $password);
+
+            if ($insert_stmt->execute()) {
+                return true;
+            }
         }
-        return false;
+            return false;
     }
 
     public function login($email,$password){
@@ -68,8 +78,7 @@ class User{
             echo "<div class='box'>
                     <i class='fas fa-user'></i>  
                     <h2>$count Users</h2><br>
-                    <a href ='#' class = 'btn' style = 'color:white;'>View all users</a>
-
+                    
                 </div>";
         } else {
             echo "<div class='box'><h2>No Users</h2></div>";
@@ -78,10 +87,10 @@ class User{
     
     public function getUsers(){
         $sql = "SELECT * FROM users";
-        $result = $this -> conn -> query($sql);
+        $result = $this->conn->query($sql);
 
         $users = [];
-        while ($row = $result -> fetch_assoc()){
+        while ($row = $result->fetch_assoc()){
             $users[] = $row;
         }
         return $users;
@@ -89,10 +98,10 @@ class User{
 
     public function deleteUsers($id){
         $sql = "DELETE FROM users WHERE id = ?";
-        $stmt = $this -> conn -> prepare($sql);
-        $stmt -> bind_param("i", $id);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $id);
 
-        if ($stmt -> execute()){
+        if ($stmt->execute()){
             return true;
         } else {
             return false;

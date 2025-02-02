@@ -54,6 +54,42 @@
         <meta name = "viewport" content = "width = device-width, initial scale = 1.0">
         <title>Account</title>
         <link rel = "stylesheet" href = "style.css">
+        <style>
+            h1{
+       text-align:center;
+        margin-bottom:15px;
+    }
+    table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color:var(--main-color);
+            color: white;
+        }
+
+        .delete-btn {
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .delete-btn:hover {
+            background: darkred;
+        }
+
+   </style>
 </head>
 <body>
     <header class = "header">
@@ -72,11 +108,9 @@
 </section>
 </header>
 
-<div class = "adminpg">
-    <h1 style = "margin-left: 10%">Dashboard</h1>
 
-</div>
 <section class = "contact">
+    <h1 class = "heading" >Admin Dashboard</h1>
     <div class = "box-container">
         <?php
          if($user->count_Users()){
