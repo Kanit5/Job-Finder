@@ -1,3 +1,51 @@
+<?php
+
+           include_once 'connection.php';
+           include_once 'User.php';
+           include_once 'Message.php';
+           include_once 'Job.php';
+            
+           $db = new Database();
+           $connection = $db->getConnection();
+           $user = new User($connection);
+           $message = new Message($connection);
+           $job = new Job($connection);
+
+
+           if (isset($_GET['delete_id'])) {
+            $delete_id = intval($_GET['delete_id']);
+                if ($user->deleteUsers($delete_id)) {
+                    echo "<script>alert('User deleted successfully');</script>";
+                } else {
+                    echo "<script>alert('Failed to delete user');</script>";
+                }
+           } 
+           $users = $user->getUsers();
+
+           if (isset($_GET['delete_msg_id'])) {
+            $delete_id = intval($_GET['delete_msg_id']);
+                if ($message->deleteMessages($delete_id)) {
+                    echo "<script>alert('Message deleted successfully');</script>";
+                } else {
+                    echo "<script>alert('Failed to delete message');</script>";
+                }
+           } 
+           $msgs = $message->getMessages();
+
+
+           if (isset($_GET['delete_job_id'])) {
+            $delete_id = intval($_GET['delete_job_id']);
+                if ($job->deleteJobs($delete_id)) {
+                    echo "<script>alert('Job deleted successfully');</script>";
+                } else {
+                    echo "<script>alert('Failed to delete job');</script>";
+                }
+           } 
+           $jobs = $job->getJobs();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang = 'en'>
     <head>
@@ -30,17 +78,6 @@
 <section class = "contact">
     <div class = "box-container">
         <?php
-         include_once 'connection.php';
-         include_once 'User.php';
-         include_once 'Message.php';
-         include_once 'Job.php';
-          
-         $db = new Database();
-         $connection = $db->getConnection();
-         $user = new User($connection);
-         $message = new Message($connection);
-         $job = new Job($connection);
-
          if($user->count_Users()){
               $user->showUserCount(); 
          }
