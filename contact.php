@@ -1,23 +1,43 @@
 <?php
-    require 'connection.php';
-    if($_SERVER['REQUEST_METHOD']=='POST'){
-        if(isset($_POST['send'])){
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $number = $_POST['number'];
-            $role = $_POST['role'];
-            $msg = $_POST['message'];
+include_once 'connection.php';
+include_once 'Message.php';
 
-            try{
-                $query = $conn->query("INSERT INTO contact (Name,Email,Number,Role,Message) values('$name','$email','$number','$role','$msg')");
-                echo "<script>window.alert('Messsage was sent');</script>";
-                header("Location: contact.php");
-            }catch(Exception $e){
-                echo "<script>window.alert('Something went wrong.Please try again');</script>";
-                header("Location: contact.php");
-            }
-        }
+session_start();
+
+if (!isset($_SESSION['user_id'])){
+header("Location: login.php"); // Redirect to log in if not logged in
+exit;
+}
+
+if(!isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > $_SESSION['session_expire'])){
+    session_unset();
+    session_destroy();
+    header("Location: login.php");
+    exit();
+}
+
+$_SESSION['last_activity'] = time();
+
+if ($_SERVER["REQUEST_METHOD"] == 'POST'){
+    $db = new Database();
+    $connection = $db -> getConnection();
+    $message = new Message($connection);
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $number = $_POST['number'];
+    $role = $_POST['role'];
+    $msg = $_POST['message'];
+
+    // Register the user
+    if ($message -> new_message($name,$email,$number,$role,$msg)){
+        echo "<script>alert('Message sent!');</script>";
+        header("Location: contact.php");
+        exit;
+    } else {
+        echo "<script>alert('Error sending the message!');</script>";
     }
+}
 
 ?>
 
