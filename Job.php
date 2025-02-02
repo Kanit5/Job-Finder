@@ -54,5 +54,28 @@ class Job{
                     </div>";
         }
     }
+    public function getJobs() {
+        $sql = "SELECT * FROM jobs";
+        $result = $this->conn->query($sql);
+
+        $jobs = [];
+        while ($row = $result->fetch_assoc()) {
+            $jobs[] = $row;
+        }
+
+        return $jobs;
+    }
+
+    public function deleteJobs($id){
+        $sql = "DELETE FROM jobs WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
