@@ -105,15 +105,15 @@
     <header class = "header">
         <section class = "flex">
             <div id = "menu-btn" class = "fas fa-bars-staggered"></div>
-                <a href = "home.html" class = "logo"><i class = "fas fa-briefcase"></i>JobFinder</a>
+                <a href = "home.php" class = "logo"><i class = "fas fa-briefcase"></i>JobFinder</a>
                 <nav class = "navbar">
-                    <a href = "home.html">Home</a>
-                    <a href = "about.html">About Us</a>
-                    <a href = "jobs.html">All Jobs</a>
-                    <a href = "contact.html">Contact Us</a>
-                    <a href = "login.html">Account</a>
+                    <a href = "home.php">Home</a>
+                    <a href = "about.php">About Us</a>
+                    <a href = "jobs.php">All Jobs</a>
+                    <a href = "contact.php">Contact Us</a>
+                    <a href = "login.php">Account</a>
                 </nav>
-                <a href = "post.html" class = "btn" style = "margin-top: 0;">Post Jobs</a>
+                <a href = "post.php" class = "btn" style = "margin-top: 0;">Post Jobs</a>
         </section>
     </header>
     

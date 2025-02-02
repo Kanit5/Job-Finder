@@ -8,37 +8,37 @@ class Message{
     }
 
     public function new_message($name, $email, $number, $role, $msg){
-        $query = "INSERT INTO [$this -> table_name} (Name, Email, Number, Role, Message) values (?,?,?,?,?)";
+        $query = "INSERT INTO [$this->table_name} (Name, Email, Number, Role, Message) values (?,?,?,?,?)";
 
-        $stmt = $this -> conn -> prepare ($query);
+        $stmt = $this->conn->prepare($query);
         if (!$stmt){
             die ("Prepare failed" . $this -> conn -> error);
         }
 
 
         // Bind parameters
-        $stmt -> bind_param("ssiss", $name, $email, $number, $role, $msg);
+        $stmt->bind_param("ssiss", $name, $email, $number, $role, $msg);
 
-        if ($stmt -> execute()){
+        if ($stmt->execute()){
             return true;
         }
         return false;
     }
 
     public function count_Messages(){
-        $sql = "SELECT COUNT(*) AS message_count FROM {$this -> table_name}";
-        $result = $this -> conn -> query($sql);
+        $sql = "SELECT COUNT(*) AS message_count FROM {$this->table_name}";
+        $result = $this->conn->query($sql);
 
         if ($result){
-            $row = $result -> fetch_assoc();
+            $row = $result->fetch_assoc();
             return $row['message_count'];
         } else {
-            die ("Query failed" . $this -> conn -> error);
+            die ("Query failed" . $this->conn->error);
         }
     }
 
     public function showMessageCount (){
-        $count = $this -> count_Message();
+        $count = $this->count_Message();
 
         if ($count > 0){
             echo "<div class = 'box'>

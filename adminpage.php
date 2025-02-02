@@ -11,15 +11,15 @@
     <header class = "header">
         <section class = "flex">
             <div id = "menu-btn" class = "fas fa-bars-staggered"></div>
-            <a href = "home.html" class = "logo"><i class = "fas fa-briefcase"></i>JobFinder</a>
+            <a href = "home.php" class = "logo"><i class = "fas fa-briefcase"></i>JobFinder</a>
             <nav class = "navbar">
-                <a href = "home.html">Home</a>
-                <a href = "about.html">About Us</a>
-                <a href = "jobs.html">All Jobs</a>
-                <a href = "contact.html">Contact Us</a>
-                <a href = "login.html">Account</a>
+                <a href = "home.php">Home</a>
+                <a href = "about.php">About Us</a>
+                <a href = "jobs.php">All Jobs</a>
+                <a href = "contact.php">Contact Us</a>
+                <a href = "login.php">Account</a>
 </nav>
-<a href = "post.html" class = "btn" style = "margin-top: 0;">Post Jobs</a>
+<a href = "post.php" class = "btn" style = "margin-top: 0;">Post Jobs</a>
 </section>
 </header>
 
@@ -30,49 +30,31 @@
 <section class = "contact">
     <div class = "box-container">
         <?php
-       include("connection.php");
-       
-       $sql = "SELECT COUNT(*) AS user_count FROM users";
-        $result = $conn->query($sql);
+         include_once 'connection.php';
+         include_once 'User.php';
+         include_once 'Message.php';
+         include_once 'Job.php';
+          
+         $db = new Database();
+         $connection = $db->getConnection();
+         $user = new User($connection);
+         $message = new Message($connection);
+         $job = new Job($connection);
 
-        if($result){
-            $row = $result->fetch_assoc();
-            $count = $row['user_count'];
+         if($user->count_Users()){
+              $user->showUserCount(); 
+         }
+          
+         if($message->count_messages()){
+              $message->showMessageCount();
+         }
 
-            if($count>0){
-                echo "<div class='box'>
-                        <i class='fas fa-user'></i>  
-                        <h2>$count Users</h2>
-                    </div>";
-            } else {
-                echo "<div class='box'><h2>No Users</h2></div>";
-            }
-        }else{
-            die('Query failed  ' . $conn->error);
-        }
-
-       //Second stat
-       $sql = "SELECT COUNT(*) AS message_count FROM contact";
-       $result = $conn->query($sql);
-
-       if ($result) {
-           $row = $result->fetch_assoc();
-           $count = $row['message_count'];
-
-           if ($count > 0) {
-               echo "<div class='box'>
-                       <i class='fas fa-message'></i>  
-                       <h2>$count Messages</h2>
-                   </div>";
-           } else {
-               echo "<div class='box'><h2>No Messages</h2></div>";
-           }
-       } else {
-           die("Query failed: " . $conn->error);
-       }
-
-        
-        ?>
+         if($job->count_jobs()){
+              $job->showJobsCount();
+         }
+          
+          
+      ?>   
         </div>
     </section>
 
@@ -82,17 +64,17 @@
         
         <div class="box">
             <h3>Quick Links</h3>
-            <a href="home.html"><i class="fas fa-angle-right"></i>Home</a>
-            <a href="about.html"><i class="fas fa-angle-right"></i>About</a>
-            <a href="jobs.html"><i class="fas fa-angle-right"></i>All Jobs</a>
-            <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>      
+            <a href="home.php"><i class="fas fa-angle-right"></i>Home</a>
+            <a href="about.php"><i class="fas fa-angle-right"></i>About</a>
+            <a href="jobs.php"><i class="fas fa-angle-right"></i>All Jobs</a>
+            <a href="contact.php"><i class="fas fa-angle-right"></i>Contact Us</a>      
         </div>
         
         <div class="box">
             <h3>Extra Links</h3>
-            <a href="account.html"><i class="fas fa-angle-right"></i>Account</a>
-            <a href="register.html"><i class="fas fa-angle-right"></i>Register</a>
-            <a href="post.html"><i class="fas fa-angle-right"></i>Post Job</a>
+            <a href="account.php"><i class="fas fa-angle-right"></i>Account</a>
+            <a href="register.php"><i class="fas fa-angle-right"></i>Register</a>
+            <a href="post.php"><i class="fas fa-angle-right"></i>Post Job</a>
         
         </div>
         
