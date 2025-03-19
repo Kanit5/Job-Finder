@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\kanit\\OneDrive\\Desktop\\Dizajni dhe Zhvillimi i Uebit\\Ushtrime 5\\Job-Finder\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kanit\\OneDrive\\Desktop\\Dizajni dhe Zhvillimi i Uebit\\Ushtrime 5\\Job-Finder\\contact.php||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:contact.php||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kanit\\OneDrive\\Desktop\\Dizajni dhe Zhvillimi i Uebit\\Ushtrime 5\\Job-Finder\\about.php||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:about.php||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
@@ -27,19 +23,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "contact.php",
-              "DocumentMoniker": "C:\\Users\\kanit\\OneDrive\\Desktop\\Dizajni dhe Zhvillimi i Uebit\\Ushtrime 5\\Job-Finder\\contact.php",
-              "RelativeDocumentMoniker": "contact.php",
-              "ToolTip": "C:\\Users\\kanit\\OneDrive\\Desktop\\Dizajni dhe Zhvillimi i Uebit\\Ushtrime 5\\Job-Finder\\contact.php",
-              "RelativeToolTip": "contact.php",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAAF0AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002338|",
-              "WhenOpened": "2025-03-19T18:55:50.746Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "about.php",
               "DocumentMoniker": "C:\\Users\\kanit\\OneDrive\\Desktop\\Dizajni dhe Zhvillimi i Uebit\\Ushtrime 5\\Job-Finder\\about.php",
               "RelativeDocumentMoniker": "about.php",
@@ -52,7 +35,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "script.js",
               "DocumentMoniker": "C:\\Users\\kanit\\OneDrive\\Desktop\\Dizajni dhe Zhvillimi i Uebit\\Ushtrime 5\\Job-Finder\\script.js",
               "RelativeDocumentMoniker": "script.js",
@@ -60,7 +43,8 @@
               "RelativeToolTip": "script.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-19T18:47:41.66Z"
+              "WhenOpened": "2025-03-19T18:47:41.66Z",
+              "EditorCaption": ""
             }
           ]
         }

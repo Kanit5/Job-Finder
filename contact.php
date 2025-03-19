@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST'){
             </div>
         </div>
         <form action="" method="post">
-            <h3>drop your message</h3>
+            <h3>drop your message in this textarea</h3>
             <div class="flex">
                 <div class="box">
                   <p>name <span>*</span></p>
