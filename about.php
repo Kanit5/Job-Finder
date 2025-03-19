@@ -108,7 +108,7 @@ $_SESSION['last_activity'] = time();
                 <i class="fas fa-star-half-alt"></i>
             </div>
              <h3 class="title">easy to use</h3>
-             <p>The variety of roles ensures a match for nearly every passion and skill set</p>
+             <p>The variety of roles ensures a match for nearly every passion and skill set....</p>
              <div class="user">
               <img src="person1.jpg" alt="" width="100">
                 <h3>Hanna</h3>
